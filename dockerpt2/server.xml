@@ -136,7 +136,7 @@
                prefix="localhost_access_log" suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 
-        <Context docBase="/home/tomcat" path="/" />
+        <Context docBase="/home/tomcat" path="/static" />
 
       </Host>
     </Engine>
