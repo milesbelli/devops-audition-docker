@@ -1,0 +1,25 @@
+version : '3'
+
+services:
+  tomcat:
+    image: tomcat_tomcat
+    container_name: p3_tomcat
+    ports:
+      - "8888:8080"
+    volumes:
+     - ~/tomcat/html:/home/tomcat/
+  mysql:
+    image: mysql:latest
+    container_name: p3_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'ezops_pwd'
+    ports:
+      - "31337:33060"
+      - "1337:3306"
+    depends_on:
+      - "ibmmq"
+  ibmmq:
+    image: ibmcom/mq
+    container_name: p3_mq
+    environment:
+      LICENSE: "accept"
